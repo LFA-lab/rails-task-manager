@@ -1,0 +1,6 @@
+<!-- app/views/tasks/show.html.erb -->
+<h1><%= @task.title %></h1>
+<p><%= @task.details %></p>
+<p>Status : <%= @task.completed ? "Complétée" : "Non complétée" %></p>
+
+<%= link_to 'Retour à la liste des tâches', tasks_path %> <!-- Lien pour revenir à la liste des tâches -->

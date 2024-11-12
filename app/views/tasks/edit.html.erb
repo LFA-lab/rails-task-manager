@@ -1,0 +1,17 @@
+<h1><%= @task.new_record? ? "Nouvelle Tâche" : "Modifier la tâche" %></h1>
+<%= form_with model: @task, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Titre de la tâche" %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :details, "Détails de la tâche" %>
+    <%= form.text_area :details %>
+  </div>
+  <div>
+    <%= form.label :completed, "Complétée" %>
+    <%= form.check_box :completed %>
+  </div>
+  <%= form.submit @task.new_record? ? "Créer" : "Mettre à jour" %>
+<% end %>
+<%= link_to 'Retour à la liste des tâches', tasks_path %> <!-- Lien pour revenir à la liste des tâches -->

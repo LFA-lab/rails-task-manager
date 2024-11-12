@@ -1,0 +1,16 @@
+<!-- app/views/tasks/index.html.erb -->
+<h1>My tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, task_path(task) %> <!-- Lien vers les détails de la tâche -->
+      &middot;
+      <%= link_to 'Modifier', edit_task_path(task) %> <!-- Lien pour éditer la tâche -->
+      &middot;
+      <%= link_to '🗑️', task_path(task), data: { turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer cette tâche ?" } %> <!-- Lien de suppression avec confirmation -->
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new task', new_task_path %> <!-- Lien pour ajouter une nouvelle tâche -->
